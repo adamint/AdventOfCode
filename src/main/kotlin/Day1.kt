@@ -1,4 +1,4 @@
-val input = readInput("input1.txt")
+private val input = readInput("input1.txt")
 
 // part 1
 /*fun main() {
@@ -32,5 +32,4 @@ fun main() {
             }
         }
     }
-
 }
