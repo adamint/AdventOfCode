@@ -25,3 +25,8 @@ operator fun <T, U> List<T>.times(ys: List<U>): List<List<*>> =
         if (x is List<*>) x + y // keeps the result flat
         else listOf(x, y)
     }.toList()
+
+operator fun Int.plus(boolean: Boolean): Int {
+    return if (boolean) this + 1
+    else this
+}
