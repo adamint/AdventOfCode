@@ -1,10 +1,15 @@
-private val input = readInput("input8.txt")
+package aoc2020
 
-data class Instruction(val name: String, val argument: Int)
+import common.*
 
-fun main() {
-    val instructions = input.split("\n").map { it.split(" ") }.map { Instruction(it[0], it[1].toInt()) }
-    fun part1(): Int {
+private val input = readInput("aoc2020/input8.txt")
+
+class Aoc2020Day8 : AocProblem(2020, 8) {
+    data class Instruction(val name: String, val argument: Int)
+
+    val instructions = lines.map { it.split(" ") }.map { Instruction(it[0], it[1].toInt()) }
+
+    override fun solvePart1(): Any {
         var accumulator = 0
         var currentLine = 0
         val linesRun = mutableListOf<Int>()
@@ -23,17 +28,16 @@ fun main() {
         }
         return accumulator
     }
-    println("Part 1: ${part1()}")
 
-    fun part2() {
+    override fun solvePart2(): Any {
         instructions
             .mapIndexed { index, instruction -> index to instruction }
             .filter { it.second.name in listOf("jmp", "nop") }
-            .map { it.first }.forEach { a ->
+            .map { it.first }.forEach { jmpOrNopIndex ->
                 var accumulator = 0
                 val testInstructions = instructions.toMutableList().apply {
-                    val oldInstruction = this[a]
-                    this[a] = oldInstruction.copy(name = if (oldInstruction.name == "jmp") "nop" else "jmp")
+                    val oldInstruction = this[jmpOrNopIndex]
+                    this[jmpOrNopIndex] = oldInstruction.copy(name = if (oldInstruction.name == "jmp") "nop" else "jmp")
                 }
 
                 var currentLine = 0
@@ -50,14 +54,15 @@ fun main() {
                         "jmp" -> currentLine += instruction.argument
                     }
                 }
-                if (currentLine == testInstructions.size) {
-                    println("Part 2: $accumulator")
-                    return@forEach
-                }
+                if (currentLine == testInstructions.size) return accumulator
             }
+
+        throw Exception()
     }
+}
 
-    part2()
 
+fun main() {
+    Aoc2020Day8().solve()
 }
 
