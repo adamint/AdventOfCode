@@ -1,11 +1,11 @@
 package aoc2020
 
-import common.AocProblem
+import common.Problem
 import common.allDistinct
 import common.product
 import common.times
 
-class Aoc2020Day1 : AocProblem(2020, 1) {
+class Aoc2020Day1 : Problem(2020, 1) {
     val nums = lines.map { it.toInt() }
 
     override fun solvePart1(): Any {

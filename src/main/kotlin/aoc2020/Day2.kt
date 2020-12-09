@@ -1,10 +1,10 @@
 package aoc2020
 
-import common.AocProblem
+import common.Problem
 import common.eqs
 import common.matchLines
 
-class Aoc2020Day2 : AocProblem(2020, 2) {
+class Aoc2020Day2 : Problem(2020, 2) {
     val passwords = "(\\d+)-(\\d+) (.+): (.+)".toRegex().matchLines(lines).filterNotNull()
     override fun solvePart1(): Any {
         return passwords.filter { passwordMatch ->

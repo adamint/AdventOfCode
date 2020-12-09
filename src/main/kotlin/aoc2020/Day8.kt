@@ -4,7 +4,7 @@ import common.*
 
 private val input = readInput("aoc2020/input8.txt")
 
-class Aoc2020Day8 : AocProblem(2020, 8) {
+class Aoc2020Day8 : Problem(2020, 8) {
     data class Instruction(val name: String, val argument: Int)
 
     val instructions = lines.map { it.split(" ") }.map { Instruction(it[0], it[1].toInt()) }

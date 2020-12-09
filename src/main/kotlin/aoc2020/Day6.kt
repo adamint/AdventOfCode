@@ -2,7 +2,7 @@ package aoc2020
 
 import common.*
 
-class Aoc2020Day6 : AocProblem(2020, 6) {
+class Aoc2020Day6 : Problem(2020, 6) {
     override fun solvePart1(): Any {
         return splitByBlankLine.map { group ->
             group.split("\n").map { it.toCharArray().toList() }.flatten().groupBy { it }.size

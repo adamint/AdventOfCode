@@ -2,7 +2,7 @@ package aoc2020
 
 import common.*
 
-class Aoc2020Day4 : AocProblem(2020, 4) {
+class Aoc2020Day4 : Problem(2020, 4) {
     val requiredFields = listOf("byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid")
 
     override fun solvePart1(): Any {

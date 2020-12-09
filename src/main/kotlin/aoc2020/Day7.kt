@@ -2,7 +2,7 @@ package aoc2020
 
 import common.*
 
-class Aoc2020Day7 : AocProblem(2020, 7) {
+class Aoc2020Day7 : Problem(2020, 7) {
     val bags = lines.map { line ->
         val bag = line.split(" bags contain")[0]
         val others = if (line.contains("contain no other bags")) listOf()

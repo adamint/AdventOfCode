@@ -1,7 +1,8 @@
 package common
 
-abstract class AocProblem(val year: Int, val day: Int) {
+abstract class Problem(val year: Int, val day: Int) {
     protected val input = readInput("aoc$year/input$day.txt")
+    protected val testInput = try{readInput("aoc$year/input${day}test.txt")}catch (e:Exception){null}
     protected val lines: List<String> = input.split("\n")
     protected val splitByBlankLine: List<String> = input.split("\n\n")
 

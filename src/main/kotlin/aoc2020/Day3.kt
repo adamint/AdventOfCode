@@ -2,7 +2,7 @@ package aoc2020
 
 import common.*
 
-class Aoc2020Day3 : AocProblem(2020, 3) {
+class Aoc2020Day3 : Problem(2020, 3) {
     fun count(slopes: List<Pair<Int, Int>>) = slopes.map { (x, y) ->
         var currentX = 0
         var currentY = 0
